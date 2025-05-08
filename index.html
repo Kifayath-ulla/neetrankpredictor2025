@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEET 2025 Rank Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] min-h-screen flex items-center justify-center text-white font-sans px-4">
+  <div class="w-full max-w-lg bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl p-8 animate-fade-in border border-white/20">
+    <h1 class="text-3xl font-bold text-blue-300 drop-shadow-sm text-center mb-2 whitespace-nowrap p-1">NEET 2025 Rank Predictor 🚀</h1>
+  
+    <p class="text-blue-100 text-center mb-6">Estimate your NEET rank based on your score</p>
+
+    <label class="block text-blue-100 font-medium text-lg mb-2">Your NEET Marks:</label>
+    <input type="number" id="marks"
+      class="w-full p-3 rounded-xl bg-blue-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="e.g. 650" min="0" max="720"
+      oninput="this.value = this.value.replace(/[^\d]/g, '').slice(0, 3)"
+      onkeydown="if(event.key==='Enter'){predictRank()}" />
+
+    <button onclick="predictRank()"
+      class="shine-button mt-6 bg-blue-400 hover:bg-blue-300 text-blue-900 font-bold py-3 px-6 rounded-xl w-full transition-transform duration-300 transform hover:scale-105 shadow-xl">
+      Predict My Rank
+    </button>
+
+    <!-- Loading spinner -->
+    <div id="loading" class="mt-6 hidden">
+      <svg class="animate-spin h-8 w-8 text-blue-200 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+        <path class="opacity-75" fill="currentColor"
+          d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z" />
+      </svg>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="mt-6 text-xl font-semibold text-blue-100 text-center"></div>
+
+    <!-- Footer -->
+    <div class="mt-8 text-sm text-blue-200 text-center">
+      <p>📢 This tool uses Neet 2025 estimated cutoffs.</p>
+      <p>⚠️ Not affiliated with NTA. For updates join <a href="https://t.me/karnataka_kea"
+          class="underline text-blue-300">t.me/karnataka_kea</a></p>
+      <p class="mt-2 font-bold">Built 🚀 by Nas x Kifayath</p>
+    </div>
+  </div>
+
+  <!-- Optional popup -->
+  <div id="popup" class="fixed bottom-4 right-4 bg-blue-600/90 p-4 rounded-xl shadow-xl text-white hidden z-50">
+    <button onclick="this.parentElement.style.display='none'" class="absolute top-2 right-3 text-white text-xl">×</button>
+    <p class="font-semibold">Prediction complete!</p>
+    <a href="https://t.me/karnataka_kea"
+      class="block bg-emerald-500 hover:bg-emerald-600 transition-all mt-3 py-2 px-4 rounded-xl text-center font-bold">Join
+      Telegram Channel</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
